@@ -1,10 +1,10 @@
 import { Nav, Navbar } from "react-bootstrap";
-// import formatNumber from "../../Utils/formateo/Format";
+import formatNumber from "../../utils/FormatNumber"
 import pizzaLogo from "../../assets/imgs/Navbar/logo-pizzeria.png";
 
 const NavbarPizza = () => {
     const token = 1;
-    // const total = 15000;
+    const total = 15000;
 
     return (
         <Navbar bg="dark" className="px-5" data-bs-theme="dark">
@@ -40,7 +40,7 @@ const NavbarPizza = () => {
             </Nav>
             {token && (
                 <Navbar.Brand className="border border-primary text-info px-3">
-                    {/* 🛒 Total: $ {formatNumber(total)} */}0
+                    🛒 Total: $ {formatNumber(total)}
                 </Navbar.Brand>
             )}
         </Navbar>
