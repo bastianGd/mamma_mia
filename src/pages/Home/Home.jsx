@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import Header from "../Header/Header";
 import CustomCard from "../../components/Cards/CustomCard";
-import pizzas from "../../data/pizzas.js";
+import {pizzas} from "../../data/pizzas";
 
 const Home = () => {
 
