@@ -1,11 +1,11 @@
 import Button from 'react-bootstrap/Button';
 
 // eslint-disable-next-line react/prop-types
-const CustomButton = ({ color, label, action }) => {
+const CustomButton = ({ color, label, onClick }) => {
   return (
     <Button
       variant={color}
-      type={action}>
+      onClick={onClick}>
       {label}
     </Button>
   );
