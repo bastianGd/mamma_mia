@@ -3,7 +3,7 @@ import "./header.css"
 const Header = () => {
     return (
         <>
-            <div className="hero-seccion d-flex justify-content-center align-items-center flex-column">
+            <div className="hero-seccion d-flex justify-content-center align-items-center flex-column mb-5">
                 <h1 className="hero-title" id="title">
                     ¡Pizzería Mamma Mia!
                 </h1>
