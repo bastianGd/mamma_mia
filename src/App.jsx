@@ -13,11 +13,12 @@ function App() {
       <div id="root">
         <div className='main-content'>
           <Navbar />
-          {/* <Home/> */}
+          <Home/>
           {/* <InputForm/> */}
-          <InputLogin />
+          {/* <InputLogin /> */}
         </div>
         <Footer />
+
       </div>
     </>
   )
