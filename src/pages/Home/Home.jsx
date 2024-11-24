@@ -8,11 +8,11 @@ const Home = () => {
   return (
     <>
       <Header />
-      <div className="d-flex flex-wrap justify-content-center gap-5">
+      {/* <div className="d-flex flex-wrap justify-content-center gap-5">
         {pizzas.map((pizza) => (
           <CustomCard key={pizza.id} pizza={pizza} />
         ))}
-      </div>
+      </div> */}
     </>
   );
 };

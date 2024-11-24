@@ -6,6 +6,7 @@ import Footer from './pages/Footer/FooterPizza'
 import Home from './pages/Home/Home'
 import InputLogin from './components/Forms/LoginForm/InputLogin'
 import Cart from "./components/Cart/Cart";
+import Pizza from './utils/APIs/Pizza'
 
 function App() {
 
@@ -15,8 +16,9 @@ function App() {
         <div className='main-content'>
 
           <Navbar />
-          <Cart/>
-          {/* <Home/> */}
+          <Home/>
+          <Pizza/>
+          {/* <Cart/> */}
           {/* <InputForm/> */}
           {/* <InputLogin /> */}
         </div>

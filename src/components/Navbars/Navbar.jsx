@@ -3,8 +3,8 @@ import formatNumber from "../../utils/FormatNumber"
 import pizzaLogo from "../../assets/imgs/Navbar/logo-pizzeria.png";
 
 const NavbarPizza = () => {
-    const token = 0;
-    const total = 15000;
+    const token = 1;
+    const total = 5980;
 
     return (
         <Navbar bg="dark" className="px-5" data-bs-theme="dark">
