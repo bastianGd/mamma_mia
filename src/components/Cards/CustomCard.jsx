@@ -3,7 +3,7 @@
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
 import CustomButton from '../Buttons/CustomButton';
-import FormatNumber from '../../utils/FormatNumber';
+import FormatNumber from '@/utils/FormatNumber';
 import './CustomCard.css';
 
 const CustomCard = ({ id, img, name, desc, price, ingredients}) => {

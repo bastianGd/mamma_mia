@@ -1,6 +1,6 @@
 import { Nav, Navbar } from "react-bootstrap";
 import formatNumber from "../../utils/FormatNumber"
-import pizzaLogo from "../../assets/imgs/Navbar/logo-pizzeria.png";
+import pizzaLogo from "@/assets/imgs/Navbar/logo-pizzeria.png";
 
 const NavbarPizza = () => {
     const token = 1;

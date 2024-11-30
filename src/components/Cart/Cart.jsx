@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { pizzaCart } from "../../data/pizzas";
-import FormatNumber from "../../utils/FormatNumber"
+import { pizzaCart } from "@/data/pizzas";
+import FormatNumber from "@/utils/FormatNumber"
 import "./Cart.css"
 
 const Cart = () => {
