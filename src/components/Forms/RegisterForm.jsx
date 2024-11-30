@@ -1,8 +1,8 @@
 /* eslint-disable react/prop-types */
 import Form from "react-bootstrap/Form";
-import CustomButton from "../../Buttons/CustomButton";
+import CustomButton from "../Buttons/CustomButton";
 
-const LoginForm = ({ handleChange, handleSubmit, formData, errors }) => {
+const RegisterForm = ({ handleChange, handleSubmit, formData, errors }) => {
   return (
     <Form className="container my-5 col-md-6" onSubmit={handleSubmit}>
       {/* Campo de correo electrónico */}
@@ -31,10 +31,22 @@ const LoginForm = ({ handleChange, handleSubmit, formData, errors }) => {
         <Form.Text className="text-danger">{errors.password}</Form.Text>
       </Form.Group>
 
+      {/* Campo de confirmación de contraseña */}
+      <Form.Group className="mb-3" controlId="formPasswordConfirm">
+        <Form.Label>Confirmar Contraseña</Form.Label>
+        <Form.Control
+          type="password"
+          name="passwordConfirm"
+          placeholder="Ingresa nuevamente tu contraseña"
+          value={formData.passwordConfirm}
+          onChange={handleChange}/>
+        <Form.Text className="text-danger">{errors.passwordConfirm}</Form.Text>
+      </Form.Group>
+
       {/* Botón personalizado */}
       <CustomButton color="success" label={"🍕Crear Cuenta"} type="submit" />
     </Form>
   );
 };
 
-export default LoginForm;
+export default RegisterForm;

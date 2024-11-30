@@ -1,12 +1,11 @@
 /* eslint-disable no-unused-vars */
 import './App.css'
-import InputForm from './components/Forms/RegisterForm.jsx/InputForm'
+import RegForm from './views/RegForm'
 import Navbar from './components/Navbars/Navbar'
-import Footer from './pages/Footer/FooterPizza'
-import Home from './pages/Home/Home'
-import InputLogin from './components/Forms/LoginForm/InputLogin'
-import Cart from "./components/Cart/Cart";
+import Footer from './components/Footer/FooterPizza'
+import Home from './views/Home'
 import Pizza from './utils/APIs/Pizza'
+import InputLogin from "./views/InputLogin"
 
 function App() {
 
@@ -18,9 +17,8 @@ function App() {
           <Navbar />
           <Home/>
           <Pizza/>
-          {/* <Cart/> */}
-          {/* <InputForm/> */}
-          {/* <InputLogin /> */}
+          <InputLogin/>
+          <RegForm/>
         </div>
         <Footer />
 

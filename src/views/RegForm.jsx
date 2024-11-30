@@ -1,14 +1,14 @@
 import { useState } from "react"
-import LoginForm from "./LoginForm"
-import ValidationForm from "../FormUtils/ValidationLogin"
+import RegisterForm from "../components/Forms/RegisterForm"
+import ValidationForm from "../utils/ValidationForm"
 import Swal from 'sweetalert2'
 
-
-const InputForm = () => {
+const RegForm = () => {
     //Comportamiento y estados
     const [formData, setFormData] = useState({
         email: "",
         password: "",
+        passwordConfirm: "",
     });
     const [errors, setErrors] = useState({});
 
@@ -31,8 +31,8 @@ const InputForm = () => {
             console.log('Formulario válido, enviando datos...', formData);
             //Mensaje de cuenta creada
             Swal.fire({
-                title: "Usuario Comprobado",
-                text: "Los datos han sido validados satisfactoriamenmte",
+                title: "Cuenta Creada",
+                text: "Su cuenta ha sido creada satisfactoriamente",
                 icon: "success",
             });
 
@@ -40,6 +40,7 @@ const InputForm = () => {
             setFormData({
                 email: "",
                 password: "",
+                passwordConfirm: "",
             })
         } else {
             console.log('Errores de validación:', validationErrors);
@@ -47,13 +48,14 @@ const InputForm = () => {
     }
 
     return (
-        <LoginForm
+        <RegisterForm
             handleChange={handleChange}
             handleSubmit={handleSubmit}
             formData={formData}
             errors={errors}>
-        </LoginForm>
+
+        </RegisterForm>
     )
 }
 
-export default InputForm
+export default RegForm
