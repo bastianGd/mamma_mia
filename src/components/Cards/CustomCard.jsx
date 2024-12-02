@@ -2,7 +2,7 @@
 /* eslint-disable no-unused-vars */
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
-import CustomButton from '../Buttons/CustomButton';
+import CustomButton from '@/components/Buttons/CustomButton';
 import FormatNumber from '@/utils/FormatNumber';
 import './CustomCard.css';
 
@@ -23,7 +23,6 @@ const CustomCard = ({ id, img, name, desc, price, ingredients}) => {
                         className="card-image"
                     />
                     <div className="card-description-overlay">
-                        <h5>{name}</h5>
                         <p>{desc}</p>
                     </div>
                 </div>
@@ -45,7 +44,9 @@ const CustomCard = ({ id, img, name, desc, price, ingredients}) => {
                             Precio ${FormatNumber(price)}
                         </Card.Title>
                         <div className="d-flex justify-content-evenly">
-                            <CustomButton color="outline-dark light" label="Ver más 👀" />
+                            <CustomButton 
+                            color="outline-dark light" 
+                            label="Ver más 👀" />
                             <CustomButton
                                 color="dark"
                                 label="Agregar 🛒"
