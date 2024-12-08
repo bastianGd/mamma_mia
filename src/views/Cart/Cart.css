@@ -1,57 +1,103 @@
 .cart {
-    padding: 20px;
-    max-width: 600px;
-    margin: auto;
-    background: #f9f9f9;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
-  .cart-item {
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-  }
-  
-  .pizza-img {
-    width: 80px;
-    height: 80px;
-    border-radius: 8px;
-    object-fit: cover;
-    margin-right: 20px;
-  }
-  
-  .details {
-    flex: 1;
-  }
-  
-  .controls {
-    display: flex;
-    gap: 10px;
-  }
-  
-  button {
-    padding: 5px 10px;
-    font-size: 16px;
-    cursor: pointer;
-  }
-  
-  .total {
-    margin-top: 20px;
-    font-size: 18px;
-    font-weight: bold;
-  }
-  
-  .pay-button {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    background: #4caf50;
-    color: #fff;
-    border: none;
-    border-radius: 8px;
-    font-size: 18px;
-    cursor: pointer;
-    text-align: center;
-  }
-  
+  background: #f8f9fa;
+  border-radius: 10px;
+  padding: 20px;
+  max-width: 500px;
+  margin: auto;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.cart-title {
+  text-align: center;
+  font-size: 24px;
+  color: #343a40;
+  margin-bottom: 20px;
+}
+
+.cart-items {
+  border-top: 1px solid #dee2e6;
+  margin-top: 15px;
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  margin: 15px 0;
+  border-bottom: 1px solid #dee2e6;
+  padding-bottom: 15px;
+}
+
+.pizza-img {
+  width: 80px;
+  height: 80px;
+  border-radius: 10px;
+  object-fit: cover;
+  margin-right: 15px;
+}
+
+.details {
+  flex: 1;
+}
+
+.pizza-name {
+  font-size: 18px;
+  color: #495057;
+  margin-bottom: 5px;
+}
+
+.pizza-price {
+  font-size: 16px;
+  color: #6c757d;
+}
+
+.pizza-quantity {
+  font-size: 16px;
+  color: #6c757d;
+}
+
+.controls {
+  display: flex;
+  gap: 10px;
+}
+
+.button {
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.increase {
+  background-color: #28a745;
+}
+
+.decrease {
+  background-color: #dc3545;
+}
+
+.pay-button {
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.pay-button:hover {
+  background: #0056b3;
+}
+
+.cart-summary {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.total-price {
+  font-size: 20px;
+  color: #007bff;
+  font-weight: bold;
+}
