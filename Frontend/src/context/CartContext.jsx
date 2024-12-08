@@ -11,7 +11,6 @@ const CartContextProvider = ({ children }) => {
     setCart((prevCart) => {
       const pizzaIndex = prevCart.findIndex(pizza => pizza.id === id);
       if (pizzaIndex === -1) {
-
         return [
           ...prevCart,
           { id, name, price, img, ingredients, count: 1 }
