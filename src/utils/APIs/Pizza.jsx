@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import CustomCard from "../../components/Cards/CustomCard";
+import { Container, Row, Col, Card, ListGroup } from "react-bootstrap";
 
 const Pizza = () => {
     const [pizzas, setPizzas] = useState([]);
@@ -24,16 +24,38 @@ const Pizza = () => {
     }
 
     return (
-        <div className="d-flex flex-wrap justify-content-center m-3">
-            <CustomCard
-                key={pizzas.id}
-                name={pizzas.name}
-                desc={pizzas.desc}
-                img={pizzas.img}
-                ingredients={pizzas.ingredients}
-                price={pizzas.price} />
+        <Container className="my-4 p-4 bg-light rounded shadow">
+            <Row className="text-center">
+                <Col>
+                    <h2 className="text-primary">Detalles de la Pizza</h2>
+                </Col>
+            </Row>
+            <Row className="mt-4">
+                <Col md={4} className="text-center">
+                    <Card.Img
+                        variant="top"
+                        src={pizzas.img}
+                        alt={pizzas.name}
+                        className="rounded"
+                        style={{ maxWidth: "100%", height: "auto" }}
+                    />
+                </Col>
+                <Col md={8}>
+                    <h3 className="text-secondary">{pizzas.name}</h3>
+                    <p className="text-muted">{pizzas.desc}</p>
+                    <ListGroup variant="flush" className="mt-3">
+                        <ListGroup.Item>
+                            <strong>Ingredientes:</strong>
+                        </ListGroup.Item>
+                        {pizzas.ingredients.map((ingredient, index) => (
+                            <ListGroup.Item key={index}>{ingredient}</ListGroup.Item>
+                        ))}
+                    </ListGroup>
+                    <h4 className="text-success mt-4">Precio: ${pizzas.price}</h4>
+                </Col>
+            </Row>
+        </Container>
 
-        </div>
     );
 };
 

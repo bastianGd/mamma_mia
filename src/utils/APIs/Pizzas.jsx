@@ -27,7 +27,7 @@ const Pizza = () => {
         <div className="d-flex flex-wrap justify-content-center m-3">
             {pizzas.map((pizza) => (
                 <CustomCard
-                    key={pizza.id} // Usa un identificador único
+                    key={pizza.id}
                     name={pizza.name}
                     desc={pizza.desc}
                     img={pizza.img}

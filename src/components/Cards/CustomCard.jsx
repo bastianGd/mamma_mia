@@ -12,7 +12,7 @@ const CustomCard = ({ id, img, name, desc, price, ingredients}) => {
         <div className="d-flex flex-wrap justify-content-center m-3">
             <Card
                 key={id}
-                style={{ width: '30rem' }}
+                style={{ width: '25rem' }}
                 className="card-container">
 
                 <div className="card-image-container">
