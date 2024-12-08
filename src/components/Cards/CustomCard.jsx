@@ -1,41 +1,37 @@
-/* eslint-disable react/prop-types */
-/* eslint-disable no-unused-vars */
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
 import CustomButton from '@/components/Buttons/CustomButton';
 import FormatNumber from '@/utils/FormatNumber';
 import './CustomCard.css';
+import { useContext } from 'react';
+import { CartContext } from '@/context/CartContext';
 
-const CustomCard = ({ id, img, name, desc, price, ingredients}) => {
+const CustomCard = ({ id, img, name, desc, price, ingredients }) => {
+
+    const { addToCart } = useContext(CartContext);
+
+    const handleAddToCart = () => {
+        console.log("Agregando pizza con ID:", id); 
+        addToCart(id, name, price, img, ingredients);
+    };
+
 
     return (
         <div className="d-flex flex-wrap justify-content-center m-3">
-            <Card
-                key={id}
-                style={{ width: '25rem' }}
-                className="card-container">
-
+            <Card key={id} style={{ width: '25rem' }} className="card-container">
                 <div className="card-image-container">
-                    <Card.Img
-                        variant="top"
-                        src={img}
-                        alt={name}
-                        className="card-image"
-                    />
+                    <Card.Img variant="top" src={img} alt={name} className="card-image" />
                     <div className="card-description-overlay">
                         <p>{desc}</p>
                     </div>
                 </div>
 
-                {/* Contenido de la tarjeta */}
                 <Card.Title className="p-3 mb-0 pizza-title">{name}</Card.Title>
                 <ListGroup variant="flush">
                     <ListGroup.Item className="text-center" variant="flush">
                         <p className="text-muted">Ingredientes:</p>
                         <ul className="pizza-ingredients">
-                            <li>
-                                {ingredients.join(', ')}
-                            </li>
+                            <li>{ingredients.join(', ')}</li>
                         </ul>
                     </ListGroup.Item>
 
@@ -44,10 +40,9 @@ const CustomCard = ({ id, img, name, desc, price, ingredients}) => {
                             Precio ${FormatNumber(price)}
                         </Card.Title>
                         <div className="d-flex justify-content-evenly">
-                            <CustomButton 
-                            color="outline-dark light" 
-                            label="Ver más 👀" />
+                            <CustomButton color="outline-dark light" label="Ver más 👀" />
                             <CustomButton
+                                onClick={handleAddToCart}
                                 color="dark"
                                 label="Agregar 🛒"
                             />

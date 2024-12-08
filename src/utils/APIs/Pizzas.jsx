@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import CustomCard from "../../components/Cards/CustomCard";
+import CustomCard from "@/components/Cards/CustomCard";
 
 const Pizza = () => {
     const [pizzas, setPizzas] = useState([]);
@@ -28,6 +28,7 @@ const Pizza = () => {
             {pizzas.map((pizza) => (
                 <CustomCard
                     key={pizza.id}
+                    id={pizza.id}
                     name={pizza.name}
                     desc={pizza.desc}
                     img={pizza.img}

@@ -1,56 +1,48 @@
-import { useState } from "react";
-import { pizzaCart } from "@/data/pizzas";
-import FormatNumber from "@/utils/FormatNumber"
-import "./Cart.css"
+import { useContext } from "react";
+import { CartContext } from "@/context/CartContext";
+import FormatNumber from "@/utils/FormatNumber";
+import "./Cart.css";
 
 const Cart = () => {
-  // Estado del carrito
-  const [cart, setCart] = useState(pizzaCart);
-
-  // Función para incrementar la cantidad de una pizza
-  const increaseCount = (id) => {
-    setCart((prevCart) =>
-      prevCart.map((pizza) =>
-        pizza.id === id ? { ...pizza, count: pizza.count + 1 } : pizza
-      )
-    );
-  };
-
-  // Función para decrementar la cantidad de una pizza
-  const decreaseCount = (id) => {
-    setCart((prevCart) =>
-      prevCart
-        .map((pizza) =>
-          pizza.id === id ? { ...pizza, count: pizza.count - 1 } : pizza
-        )
-        .filter((pizza) => pizza.count > 0)
-    );
-  };
-
-  // Calcular el total de la compra
-  const totalPrice = cart.reduce((total, pizza) => total + pizza.price * pizza.count, 0);
+  const { cart, increaseCount, decreaseCount, totalPrice } = useContext(CartContext);
 
   return (
-    <div className="cart">
-      <h2>Carrito de Compras</h2>
-      {cart.map((pizza) => (
-        <div key={pizza.id} className="cart-item">
-          <img src={pizza.img} alt={pizza.name} className="pizza-img" />
-          <div className="details">
-            <h3>{pizza.name}</h3>
-            <p>Precio: ${FormatNumber(pizza.price)}</p>
-            <p>Cantidad: {pizza.count}</p>
+    <div className="cart mt-5">
+      <h2 className="cart-title">🛒 Carrito de Compras</h2>
+      <div className="cart-items">
+        {cart.map((pizza) => (
+          <div key={pizza.id} className="cart-item">
+            <img src={pizza.img} alt={pizza.name} className="pizza-img" />
+            <div className="details">
+              <h3 className="pizza-name">{pizza.name}</h3>
+              <p className="pizza-price">
+                Precio: <strong>${FormatNumber(pizza.price)}</strong>
+              </p>
+              <p className="pizza-quantity">Cantidad: {pizza.count}</p>
+            </div>
+            <div className="controls">
+              <button
+                className="button increase"
+                onClick={() => increaseCount(pizza.id)}
+              >
+                +
+              </button>
+              <button
+                className="button decrease"
+                onClick={() => decreaseCount(pizza.id)}
+              >
+                -
+              </button>
+            </div>
           </div>
-          <div className="controls">
-            <button className="bg-success" onClick={() => increaseCount(pizza.id)}>+</button>
-            <button className="bg-danger" onClick={() => decreaseCount(pizza.id)}>-</button>
-          </div>
-        </div>
-      ))}
-      <div className="total">
-        <h3>Total: ${FormatNumber(totalPrice)}</h3>
+        ))}
       </div>
-      <button className="pay-button">Pagar</button>
+      <div className="cart-summary">
+        <h3>
+          Total: <span className="total-price">${FormatNumber(totalPrice)}</span>
+        </h3>
+        <button className="pay-button">Pagar</button>
+      </div>
     </div>
   );
 };
