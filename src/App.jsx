@@ -1,20 +1,19 @@
-import './App.css'
-import RegForm from './views/RegForm'
-import Navbar from './components/Navbars/Navbar'
-import Footer from './components/Footer/FooterPizza'
-import Home from './views/Home'
-import Pizza from './utils/APIs/Pizza'
-import InputLogin from "./views/InputLogin"
-import Cart from "./views/Cart/Cart"
-import Profile from './views/Profile/Profile'
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import NotFound from './views/NotFound/NotFound'
-
+import './App.css';
+import RegForm from './views/RegForm';
+import Navbar from './components/Navbars/Navbar';
+import Footer from './components/Footer/FooterPizza';
+import Home from './views/Home';
+import Pizza from './utils/APIs/Pizza';
+import InputLogin from "./views/InputLogin";
+import Cart from "./views/Cart/Cart";
+import Profile from './views/Profile/Profile';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import NotFound from './views/NotFound/NotFound';
+import CartContextProvider from './context/CartContext';
 
 function App() {
-
   return (
-    <>
+    <CartContextProvider>
       <BrowserRouter>
         <div id="root">
           <Navbar />
@@ -25,15 +24,15 @@ function App() {
               <Route path="/register" element={<RegForm />} />
               <Route path="/pizza/:id" element={<Pizza />} />
               <Route path="/cart" element={<Cart />} />
-              <Route path="/404" element={<NotFound />} />
+              <Route path="*" element={<NotFound />} />
               <Route path="/profile" element={<Profile />} />
             </Routes>
           </div>
           <Footer />
         </div>
       </BrowserRouter>
-    </>
-  )
+    </CartContextProvider>
+  );
 }
 
-export default App
+export default App;

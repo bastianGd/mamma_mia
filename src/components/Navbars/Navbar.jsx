@@ -2,10 +2,12 @@ import { Nav, Navbar } from "react-bootstrap";
 import formatNumber from "@/utils/FormatNumber";
 import pizzaLogo from "@/assets/imgs/Navbar/logo-pizzeria.png";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { CartContext } from "@/context/CartContext";
 
 const NavbarPizza = () => {
-    const token = true; 
-    const total = 5980;
+    const token = true;
+    const { cart } = useContext(CartContext); 
 
     return (
         <Navbar bg="dark" expand="lg" className="px-5" data-bs-theme="dark">
@@ -38,7 +40,7 @@ const NavbarPizza = () => {
             {/* Total del carrito (solo si está logueado) */}
             {token && (
                 <Nav.Link as={Link} to='/cart' className="border border-primary text-info px-3">
-                    🛒 Total: $ {formatNumber(total)}
+                    🛒 Total: $ {formatNumber(cart)}
                 </Nav.Link>
             )}
         </Navbar>
