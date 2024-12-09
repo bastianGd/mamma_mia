@@ -22,16 +22,16 @@ const Cart = () => {
             </div>
             <div className="controls">
               <button
-                className="button increase"
-                onClick={() => increaseCount(pizza.id)}
-              >
-                +
-              </button>
-              <button
                 className="button decrease"
                 onClick={() => decreaseCount(pizza.id)}
               >
                 -
+              </button>
+              <button
+                className="button increase"
+                onClick={() => increaseCount(pizza.id)}
+              >
+                +
               </button>
             </div>
           </div>
