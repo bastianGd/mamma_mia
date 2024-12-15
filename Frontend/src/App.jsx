@@ -10,6 +10,7 @@ import Profile from './views/Profile/Profile';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import NotFound from './views/NotFound/NotFound';
 import CartContextProvider from './context/CartContext';
+import PizzaDetails from './utils/APIs/Pizza';
 
 function App() {
   return (
@@ -22,7 +23,7 @@ function App() {
               <Route path="/" element={<Home />} />
               <Route path="/login" element={<InputLogin />} />
               <Route path="/register" element={<RegForm />} />
-              <Route path="/pizza/:id" element={<Pizza />} />
+              <Route path="/pizza/:id" element={<PizzaDetails />} />
               <Route path="/cart" element={<Cart />} />
               <Route path="*" element={<NotFound />} />
               <Route path="/profile" element={<Profile />} />

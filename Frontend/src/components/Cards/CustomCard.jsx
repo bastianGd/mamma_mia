@@ -5,15 +5,21 @@ import FormatNumber from '@/utils/FormatNumber';
 import './CustomCard.css';
 import { useContext } from 'react';
 import { CartContext } from '@/context/CartContext';
+import { useNavigate } from 'react-router-dom'; // Importa useNavigate
 
 const CustomCard = ({ id, img, name, desc, price, ingredients }) => {
 
-    const { addToCart } = useContext(CartContext);
+    function handleViewMore() {
+        navigate(`/pizza/${id}`);
+    }
 
-    const handleAddToCart = () => {
-        console.log("Agregando pizza con ID:", id); 
+    const { addToCart } = useContext(CartContext);
+    const navigate = useNavigate();
+
+    function handleAddToCart() {
+        console.log("Agregando pizza con ID:", id);
         addToCart(id, name, price, img, ingredients);
-    };
+    }
 
 
     return (
@@ -40,7 +46,11 @@ const CustomCard = ({ id, img, name, desc, price, ingredients }) => {
                             Precio ${FormatNumber(price)}
                         </Card.Title>
                         <div className="d-flex justify-content-evenly">
-                            <CustomButton color="outline-dark light" label="Ver más 👀" />
+                            <CustomButton
+                                onClick={handleViewMore} // Asigna el handler al botón
+                                color="outline-dark light"
+                                label="Ver más 👀"
+                            />
                             <CustomButton
                                 onClick={handleAddToCart}
                                 color="dark"

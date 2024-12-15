@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import CustomCard from "@/components/Cards/CustomCard";
 
-const Pizza = () => {
+const PizzaList = () => {
     const [pizzas, setPizzas] = useState([]);
     const URL = "http://localhost:5000/api/pizzas";
 
@@ -40,4 +40,4 @@ const Pizza = () => {
     );
 };
 
-export default Pizza;
+export default PizzaList;
