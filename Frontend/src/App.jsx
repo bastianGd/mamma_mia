@@ -7,12 +7,15 @@ import Pizza from './utils/APIs/Pizza';
 import InputLogin from "./views/InputLogin";
 import Cart from "./views/Cart/Cart";
 import Profile from './views/Profile/Profile';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
 import NotFound from './views/NotFound/NotFound';
 import CartContextProvider from './context/CartContext';
 import PizzaDetails from './utils/APIs/Pizza';
+import { useUserContext } from './context/UserContext';
+
 
 function App() {
+  const { token } = useUserContext();
   return (
     <CartContextProvider>
       <BrowserRouter>
@@ -26,7 +29,8 @@ function App() {
               <Route path="/pizza/:id" element={<PizzaDetails />} />
               <Route path="/cart" element={<Cart />} />
               <Route path="*" element={<NotFound />} />
-              <Route path="/profile" element={<Profile />} />
+              <Route path="/profile" element={token ? <Profile /> : <Navigate to="/login" />}
+              />
             </Routes>
           </div>
           <Footer />

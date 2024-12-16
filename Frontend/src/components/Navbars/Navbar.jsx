@@ -5,14 +5,14 @@ import { Link, NavLink } from "react-router-dom";
 import { useContext } from "react";
 import { CartContext } from "@/context/CartContext";
 import { getActiveClass } from "@/utils/getActiveClass";
+import { useUserContext } from "@/context/UserContext"; 
 
 const NavbarPizza = () => {
-    const token = 1; 
-    const { totalPrice } = useContext(CartContext); 
+    const { token, logout } = useUserContext(); 
+    const { totalPrice } = useContext(CartContext);
 
     return (
         <Navbar bg="dark" expand="lg" className="navbar navbar-expand navbar-light bg-dark" data-bs-theme="dark">
-
             {/* Logo de la pizzería */}
             <Navbar.Brand as={Link} to="/" className="mx-5">
                 <img
@@ -25,21 +25,19 @@ const NavbarPizza = () => {
 
             {/* Navegación principal */}
             <Nav className="me-auto">
-                <NavLink
-                    to="/"
-                    className={({ isActive }) => getActiveClass(isActive)}
-                >
+                <NavLink to="/" className={({ isActive }) => getActiveClass(isActive)}>
                     🍕 Home
                 </NavLink>
                 {token ? (
                     <>
-                        <NavLink
-                            to="/profile"
-                            className={({ isActive }) => getActiveClass(isActive)}
-                        >
+                        <NavLink to="/profile" className={({ isActive }) => getActiveClass(isActive)}>
                             👤 Profile
                         </NavLink>
-                        <NavLink to="/a" className={({ isActive }) => getActiveClass(isActive)}>
+                        <NavLink
+                            to="#"
+                            onClick={logout} 
+                            className="nav-link text-light"
+                        >
                             🔐 Logout
                         </NavLink>
                     </>
@@ -51,17 +49,13 @@ const NavbarPizza = () => {
                         <NavLink to="/register" className={({ isActive }) => getActiveClass(isActive)}>
                             🔐 Register
                         </NavLink>
-
                     </>
                 )}
             </Nav>
 
             {/* Total del carrito (solo si está logueado) */}
             {token && (
-                <NavLink
-                    to="/cart"
-                    className="border border-primary text-info px-3 me-5 nav-link"
-                >
+                <NavLink to="/cart" className="border border-primary text-info px-3 me-5 nav-link">
                     🛒 Total: $ {formatNumber(totalPrice)}
                 </NavLink>
             )}

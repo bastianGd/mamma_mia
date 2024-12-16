@@ -1,10 +1,12 @@
 import { useContext } from "react";
 import { CartContext } from "@/context/CartContext";
 import FormatNumber from "@/utils/FormatNumber";
+import { useUserContext } from "@/context/UserContext";
 import "./Cart.css";
 
 const Cart = () => {
   const { cart, increaseCount, decreaseCount, totalPrice } = useContext(CartContext);
+  const { token } = useUserContext();
 
   return (
     <div className="cart mt-5">
@@ -41,7 +43,7 @@ const Cart = () => {
         <h3>
           Total: <span className="total-price">${FormatNumber(totalPrice)}</span>
         </h3>
-        <button className="pay-button">Pagar</button>
+        <button className="pay-button" disabled={!token}>Pagar</button>
       </div>
     </div>
   );

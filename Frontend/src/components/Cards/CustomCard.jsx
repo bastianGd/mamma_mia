@@ -47,7 +47,7 @@ const CustomCard = ({ id, img, name, desc, price, ingredients }) => {
                         </Card.Title>
                         <div className="d-flex justify-content-evenly">
                             <CustomButton
-                                onClick={handleViewMore} // Asigna el handler al botón
+                                onClick={handleViewMore} 
                                 color="outline-dark light"
                                 label="Ver más 👀"
                             />
