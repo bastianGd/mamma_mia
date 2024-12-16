@@ -16,6 +16,7 @@ import { useUserContext } from './context/UserContext';
 
 function App() {
   const { token } = useUserContext();
+  console.log(token)
   return (
     <CartContextProvider>
       <BrowserRouter>

@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { CartContext } from "@/context/CartContext";
 import FormatNumber from "@/utils/FormatNumber";
 import { useUserContext } from "@/context/UserContext";
+import { Button } from "react-bootstrap";
 import "./Cart.css";
 
 const Cart = () => {
@@ -43,7 +44,7 @@ const Cart = () => {
         <h3>
           Total: <span className="total-price">${FormatNumber(totalPrice)}</span>
         </h3>
-        <button className="pay-button" disabled={!token}>Pagar</button>
+        <Button variant="success"  disabled={!token}>Pagar</Button>
       </div>
     </div>
   );
